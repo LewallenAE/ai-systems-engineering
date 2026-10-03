@@ -2,21 +2,25 @@ import "dotenv/config";
 import {generateText, type ModelMessage} from "ai";
 import {openai} from "@ai-sdk/openai";
 import {SYSTEM_PROMPT} from "./system/prompt";
+import { tools } from "./tools/index.ts"
 import type {AgentCallbacks} from "../types.ts"
 const MODEL_NAME = "gpt-6-luna";
 
-export const runAgent = async(
+export async function runAgent (
     userMessage: string, 
     conversationHistory: ModelMessage[], 
     callbacks: AgentCallbacks,
-) => {
+): Promise<any> {
     const {text} = await generateText({
         model: openai(MODEL_NAME),
         prompt: userMessage,
         system: SYSTEM_PROMPT,
+        tools,
     });
 
-    console.log(text);
+    console.log(text, toolCalls);
+    
+
 }
 
-runAgent("Hello, is this text coming through. Can you tell me what model you are?")
+runAgent("Hello, is this text coming through. Can you tell me what the current time is? Along with the date?")

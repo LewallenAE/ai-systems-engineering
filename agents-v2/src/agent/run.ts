@@ -2,8 +2,9 @@ import "dotenv/config";
 import {generateText, type ModelMessage} from "ai";
 import {openai} from "@ai-sdk/openai";
 import {SYSTEM_PROMPT} from "./system/prompt";
-import { tools } from "./tools/index.ts"
-import type {AgentCallbacks} from "../types.ts"
+import { tools } from "./tools/index.ts";
+import { executeTool } from "./executeTools.ts";
+import type {AgentCallbacks} from "../types.ts";
 const MODEL_NAME = "gpt-6-luna";
 
 export async function runAgent (
@@ -11,7 +12,7 @@ export async function runAgent (
     conversationHistory: ModelMessage[], 
     callbacks: AgentCallbacks,
 ): Promise<any> {
-    const {text} = await generateText({
+    const {text, toolCalls} = await generateText({
         model: openai(MODEL_NAME),
         prompt: userMessage,
         system: SYSTEM_PROMPT,
@@ -19,7 +20,7 @@ export async function runAgent (
     });
 
     console.log(text, toolCalls);
-    
+
 
 }
 

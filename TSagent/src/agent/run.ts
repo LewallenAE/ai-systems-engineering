@@ -17,9 +17,11 @@ export async function runAgent (
     conversationHistory: ModelMessage[], 
     callbacks: AgentCallbacks,
 ): Promise<any> {
+
     const {text, toolCalls} = await generateText({
         model: openai(MODEL_NAME),
         prompt: userMessage,
+        // messages: [],
         system: SYSTEM_PROMPT,
         tools,
         experimental_telemetry: {

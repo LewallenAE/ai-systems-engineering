@@ -1,5 +1,5 @@
 
-.import type { ModelMessage } from "ai";
+import type { ModelMessage } from "ai";
 /**
  * Filter conversation history to only include compatible message formats.
  * Provider tools (like webSearch) may return messages with formats that

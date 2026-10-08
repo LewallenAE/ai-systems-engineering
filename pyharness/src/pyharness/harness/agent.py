@@ -5,7 +5,6 @@ load_dotenv()
 
 client = OpenAI()
 
-
 def run_agent(prompt: str) -> str:
     response = client.responses.create(
         model = "gpt-6-luna",

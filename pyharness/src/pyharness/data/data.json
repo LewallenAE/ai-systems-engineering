@@ -7,8 +7,8 @@
     },
     {
         "id": "prompt_task0002",
-        "prompt": "What is the derivative of 2x^3? 'Provide the name of the rule, and the answer in the format Rule: <rule here>, Answer: 6x^2'",
-        "expected": "Rule: Power Rule, Answer 6x^2",
+        "prompt": "What is the derivative of 2x^3? 'Provide the name of the rule, and the answer in the format Rule: <rule here>, Answer: <here>, using a carrot ^ for the exponent",
+        "expected": "Rule: Power Rule, Answer: 6x^2",
         "grader": "exact_match"
     }
 ]

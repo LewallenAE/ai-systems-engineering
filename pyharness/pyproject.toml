@@ -4,11 +4,13 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [
-    { name = "LewallenAE", email = "lewallenAE@gmail.com" }
+    { name = "LewallenAE", email = "anthonylewallen.dev@gmail.com" }
 ]
 requires-python = ">=3.13"
 dependencies = [
     "openai>=3.26.0",
+    "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
     "python-dotenv>=1.2.4",
 ]
 

@@ -7,7 +7,9 @@ class Task(BaseModel):
     
 class Result(BaseModel):
     task_id: str
-    output: str
+    prompt: str
+    agent_output: str
+    expected_output: str
     passed: bool
     score: float
 

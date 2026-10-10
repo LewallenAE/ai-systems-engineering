@@ -1,4 +1,4 @@
-from harness.runner import run_tasks, results
+from harness.agent_runner import run_tasks, results
 
 
 if __name__ == "__main__":

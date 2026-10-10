@@ -1,12 +1,13 @@
-from pathlib import Path
 import json
+from pathlib import Path
+
 
 # Decouple the file path
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_FILE = BASE_DIR / "data" / "data.json"
 
-from .agent import run_agent
-from .agent_grader import grader
+from .agent_import import run_agent
+from .agent_grader import task_grader
 from .agent_passed import task_passed
 from schemas.harness_schemas import Result
 
@@ -24,7 +25,7 @@ def run_tasks():
     
     for task in tasks:
         output = run_agent(task["prompt"])
-        score = grader(output, task["expected"])
+        score = task_grader(output, task["expected"])
         passed = task_passed(score)
         
         result = Result(
@@ -37,4 +38,6 @@ def run_tasks():
         )
         results.append(result)
     return results
+
+
         

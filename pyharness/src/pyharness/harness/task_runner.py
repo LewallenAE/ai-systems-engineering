@@ -11,7 +11,7 @@ DATA_FILE = BASE_DIR / "data" / "data.json"
 from .agent_import import run_agent
 from .agent_grader import task_grader
 from .agent_passed import task_passed
-from schemas.harness_schemas import Result, Task
+from ..schemas.harness_schemas import Result, Task
 
 
 

@@ -15,7 +15,7 @@ def result_writer():
     
     run_output_dir.mkdir(parents=True, exist_ok=True)
     
-    serialized_Result = [item.model_dump() for item in run_output]
+    serialized_Result = [item.model_dump(mode='json') for item in run_output]
     
     with open(run_output_file, "w", encoding="utf-8") as f:
         json.dump(serialized_Result, f, indent=4)

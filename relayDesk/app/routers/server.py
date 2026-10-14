@@ -6,7 +6,7 @@ import uvicorn
 
 
 from db.db_schema import User
-from db import db
+from db.db import engine
 
 app = FastAPI()
 
@@ -19,7 +19,7 @@ async def root():
 
 @app.get("/users")
 def get_users():
-    with Session(db.engine) as session:
+    with Session(engine) as session:
         users = session.scalars(select(User)).all()
         return users 
     

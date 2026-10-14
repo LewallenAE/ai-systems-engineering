@@ -5,7 +5,6 @@ import db.db_schema
 def main():
     db_connection()
     run_server()
-    db.User()
     
 
 

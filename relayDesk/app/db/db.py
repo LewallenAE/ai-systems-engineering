@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text
+import psycopg
 
-
-engine = create_engine("postgresql+psycopg://@localhost:5432/relaydesk_db")
+engine = create_engine(f"postgresql+psycopg://lewal:password@localhost:5432/relaydesk_db")
 
 def db_connection():
     with engine.connect() as conn:
